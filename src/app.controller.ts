@@ -9,7 +9,9 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly kafkaProducer: KafkaProducerService,
-  ) {}
+  ) {
+    console.log('application kafka');
+  }
   @EventPattern('user.created')
   handleUserCreated(@Payload() message: any) {
     console.log('💡 Kafka Event Received:', message);
